@@ -6,8 +6,8 @@ public class card {
 	private int suit;
 	private int rank;
 	
-	String[] SUITS = {"Clubs","Diamonds","Hearts","Spade"};
-	String[] RANKS = {null,"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
+	public static final String[] SUITS = {"Clubs","Diamonds","Hearts","Spade"};
+	public static final String[] RANKS = {null,"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
 	
 	// constructor for the class 
 	
@@ -46,6 +46,12 @@ public class card {
 	{
 		System.out.println(RANKS[this.rank]);
 		System.out.println(SUITS[this.suit]);
+	}
+	
+	public String toString()
+	{
+		String s = RANKS[this.rank] + " of " + SUITS[this.suit];
+		return s;
 	}
 	
 	
