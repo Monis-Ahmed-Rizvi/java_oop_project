@@ -3,8 +3,8 @@ package cards;
 public class card {
 
 	
-	private int suit;
-	private int rank;
+	private  final int suit;
+	private  final int rank;
 	
 	public static final String[] SUITS = {"Clubs","Diamonds","Hearts","Spade"};
 	public static final String[] RANKS = {null,"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
@@ -29,17 +29,6 @@ public class card {
 		return this.rank;
 	}
 	
-	// setter method
-	
-	public void setSuit(int suit)
-	{
-		this.suit = suit;
-	}
-	
-	public void setRank(int rank)
-	{
-		this.rank = rank;
-	}
 	
 	
 	public void print()
@@ -52,6 +41,36 @@ public class card {
 	{
 		String s = RANKS[this.rank] + " of " + SUITS[this.suit];
 		return s;
+	}
+	
+	public boolean toEquals(card that)
+	{
+	   	return this.rank == that.rank && this.suit == that.suit; 
+	}
+	
+	public int toCompare(card that)
+	{
+		if(this.suit < that.suit)
+		{
+			return -1;
+		}
+		if(this.suit > that.suit)
+		{
+			return 1;
+		}
+		
+		if(this.rank < that.rank)
+		{
+			return -1;
+		}
+		
+		
+		if(this.rank > that.rank)
+		{
+			return 1;
+		}
+		
+		return 0;
 	}
 	
 	
