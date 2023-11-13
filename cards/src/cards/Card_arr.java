@@ -54,6 +54,39 @@ public class Card_arr {
     	return 0;
     }
     
+    public static int DeckBinSearch(card[] deck,card target)
+    {
+    	int low = 0;
+    	int high = deck.length -1;
+    	
+    	
+    	// if deck[mid] is lower than target -1 deck[mid] ---- [target]
+    	// if deck[mid] is higher than target 1 target ----- deck[mid]
+    	while(low<=high)
+    	{
+    	 int mid = (low+high)/2;	
+    	 int comp = deck[mid].toCompare(target);
+    	 
+    	 if(comp == 0)
+    	 {
+    		 return mid;
+    	 }
+    	 else if(comp < 0)
+    	 {
+    		 low = mid+1;
+    	 }
+    	 else
+    	 {
+    		 high = mid - 1;
+    	 }
+    	 
+    	 System.out.println(low+" : "+high+" : "+mid+" : "+comp);
+    	}
+    	
+    	
+    	return 0;
+    }
+    
     
     
 	public static void main(String[] args)
@@ -100,8 +133,12 @@ public class Card_arr {
 	   System.out.println("");   
 	   //printDeck_n(cards_2);
 	
-	   // creating card to search it in deck
 	   
+	   
+	   
+	   
+	   // creating card to search 
+	   // comparing the 2 different decks  
 	   for(int i = 0;i<cards.length;i++)
 	   {
 		   System.out.println(i+" "+cards[i]+"  "+cards_2[i]);
@@ -112,14 +149,20 @@ public class Card_arr {
 	   //System.out.println(randInt);
 	   //System.out.println(card_r.toString());
 	   
+	   
 	   card cardq = new card(2,2);
 	   System.out.println(cardq.toString());
 	   
 	   
 	   // searching in both the decks 
-	   System.out.println(DeckSearch(cards,cardq));
-	   System.out.println(DeckSearch(cards_2,cardq));
+	   //System.out.println(DeckSearch(cards,cardq));
+	   //System.out.println(DeckSearch(cards_2,cardq));
 	   
+	   
+	   System.out.println(DeckBinSearch(cards_2,cardq));
+	   
+	   // can not work on unsorted array 
+	   //System.out.println(DeckBinSearch(cards,cardq));
 	   
 	}
 	

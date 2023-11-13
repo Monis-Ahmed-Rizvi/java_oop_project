@@ -50,6 +50,9 @@ public class card {
 	
 	public int toCompare(card that)
 	{
+		// if the main card is less than 
+		// the compared card 
+		
 		if(this.suit < that.suit)
 		{
 			return -1;
