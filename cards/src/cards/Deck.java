@@ -149,7 +149,7 @@ public class Deck {
     	for(int k =0;k<res.cards.length;k++)
     	{
     		
-    		System.out.println(i+" "+j+"k"+k);
+    		//System.out.println(i+" "+j+"k"+k);
     		if (i >= d1.cards.length) {
                 // All elements from d1 have been used, copy remaining from d2
                 res.cards[k] = d2.cards[j];
@@ -169,7 +169,7 @@ public class Deck {
                 }
             }
     		
-    		res.printDeckSimple();
+    		//res.printDeckSimple();
     		
     	}
     	

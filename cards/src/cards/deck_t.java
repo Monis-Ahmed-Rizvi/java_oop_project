@@ -39,7 +39,7 @@ public class deck_t {
 		sub_res2.printDeckSimple();
 		System.out.println("");
 		Deck res = deck1.merge(sub_res,sub_res2);
-		res.printDeckSimple();
+		//res.printDeckSimple();
 		
 	}
 	
