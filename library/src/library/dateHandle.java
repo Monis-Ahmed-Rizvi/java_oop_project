@@ -91,10 +91,19 @@ public class dateHandle {
      System.out.println(book3.getQnty());
      
      
+     
+     // date 
+     
+     
+     LocalDate today = LocalDate.now();
+     LocalDate Date5 = LocalDate.of(2020, 12, 20);
+     System.out.println(today.compareTo(Date5));
+     
+     
      // ######################################################### TODO ###########################################################################
      
      
-     // have to add defaulter list 
+     // have to add defaulter 
      // DVD borrow 
      // BAN deafaulter 
      

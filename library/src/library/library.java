@@ -329,6 +329,29 @@ public class Library {
 			return member.remove(n);
 		}
 		
+		
+		public void issueDefault(person p_obj)
+		{
+			// today date 
+			LocalDate today = LocalDate.now();
+			// issue date 
+			int x = p_obj.sizeBorrowDates();		
+			for(int i =0;i<x;i++)
+			{
+				LocalDate issueDate = p_obj.getBorrowDates(i);
+				// compare dates 
+				if(today.compareTo(issueDate)>=14)
+				{
+					p_obj.setDefaults(true, i);
+				}
+				// issues default 
+			}
+					
+			
+		}
+		
+		
+		
 		public Book Borrow(person p_obj,Book book)
 		{
 			
@@ -384,11 +407,6 @@ public class Library {
 						return book;
 					}
 				}
-					
-				
-			
-			
-			
 			
 		}
 		
