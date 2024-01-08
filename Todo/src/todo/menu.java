@@ -39,40 +39,143 @@ public class menu {
 				}
 				else
 				{
+					status =  false;
 				   t1 = new Task();
 				   System.out.println("Enter task id");
 				   t1.setId(sc.nextInt());
 				   System.out.println("Enter task title");
 				   t1.setTitle(sc.next());
-				   System.out.println("");
+				   System.out.println("Enter task text");
+				   t1.setText(sc.next());
+				   
+				   status = control.addTask(t1);
+				   
+				   if(status==true)
+				   {
+					   System.out.println("Task added");
+				   }
+				   else
+				   {
+					   System.out.println("could not add task");
+				   }
+	
 				   
 				}
 				break;
 
 			case 2:
-				System.out.println("2");
+				if(control.isEmpty())
+				{
+					System.out.println("No task to remove");
+				}
+				else
+				{
+					status = false;
+					System.out.println("Enter the id to remove task ");
+					id = sc.nextInt();
+					status = control.removeTask(id);
+					if(status==true)
+					{
+						System.out.println("Task removed");
+					}
+					else
+					{
+						System.out.println("could not remove the task");
+					}
+				}
 				break;
 				
 
 			case 3:
-				System.out.println("3");
+				if(control.isEmpty())
+				{
+					System.out.println("NO task to update");
+				}
+				else
+				{
+					status = false;
+					t1 = new Task();
+					System.out.println("enter the ID of task to update");
+					t1.setId(sc.nextInt());
+					System.out.println("Enter the title ");
+					t1.setTitle(sc.next());
+					System.out.println("Enter the text ");
+					t1.setText(sc.next());
+					
+					status = control.updateTask(t1);
+					if(status==true)
+					{
+						System.out.println("task updated ");
+					}
+					else
+					{
+						System.out.println("task couldnt be updated");
+					}
+				}
 				break;	
 				
 				
 
 			case 4:
-				System.out.println("4");
+				// search task based on id 
+				if(control.isEmpty())
+				{
+					System.out.println("No task found in the array ");
+				}
+				else
+				{
+				   t1 = new Task();
+				   status =  false;
+				   System.out.println("Enter the id to search");
+				   id = sc.nextInt();
+				   t1 = control.searchTask(id);
+				   System.out.println(t1.toString());
+				   
+				}
 				break;
 				
 				
 
 			case 5:
-				System.out.println("5");
+				// assign task to a user 
+				// 
+				if(control.isEmpty())
+				{
+					System.out.println("No task available");
+				}
+				else
+				{
+					System.out.println("Enter a  title of the task");
+					title = sc.next();
+					System.out.println("Enter the user name to assign");
+					user = sc.next();
+					status = control.assignTask(title, user);
+					if(status==true)
+					{
+						System.out.println("Task assingned");
+					}
+					else
+					{
+						System.out.println("task couldnt be assigned ");
+					}
+				}
 				break;
 				
 
 			case 6:
-				System.out.println("6");
+				// display all the task 
+				if(control.isEmpty())
+				{
+					System.out.println("NO task to diplay");
+				}
+				else
+				{
+					tasks = control.getAllTasks();
+					for(int i =0;i<tasks.length;i++)
+					{
+						System.out.println(tasks[i]);
+					}
+				}
 				break;
 				
 				
