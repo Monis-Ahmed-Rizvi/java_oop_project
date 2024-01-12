@@ -14,6 +14,7 @@ public class menu {
 		int id = 0;
 		String user, title;
 		boolean status = false;
+		//sc.useDelimiter("\\n");
 		
 		do {
 			
@@ -43,11 +44,13 @@ public class menu {
 				   t1 = new Task();
 				   System.out.println("Enter task id");
 				   t1.setId(sc.nextInt());
+				   Scanner str = new Scanner(System.in);
 				   System.out.println("Enter task title");
-				   t1.setTitle(sc.next());
+				   t1.setTitle(str.nextLine());
+				   System.out.println();
 				   System.out.println("Enter task text");
-				   t1.setText(sc.next());
-				   
+				   Scanner str1 = new Scanner(System.in);
+				   t1.setText(str1.nextLine());
 				   status = control.addTask(t1);
 				   
 				   if(status==true)
