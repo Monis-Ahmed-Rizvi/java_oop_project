@@ -5,6 +5,8 @@ public class Task {
     private String taskTitle;
     private String taskText;
     private String assignedTo ;
+    private String CompletionDate;
+    private boolean completed = false;
     
     // constructor 
     
@@ -17,7 +19,7 @@ public class Task {
     
     Task(int taskId,String taskTitle,String taskText)
     {
-   	 
+   	 super();
    	 this.taskId = taskId;
    	 this.taskTitle = taskTitle;
    	 this.taskText = taskText;
@@ -53,8 +55,44 @@ public class Task {
     }
     
     
+    
+    
+    // getter for completed;
+    
+     public boolean getCompleted()
+     {
+    	 return this.completed;
+     }
+    
+    
+    // getter for completionDate;
+     
+     
+     public String getCompletionDate()
+     {
+    	 return this.CompletionDate;
+     }
+    
     // setter 
     
+    // setter for completed;
+     
+     
+     public void setCompleted(boolean completed)
+     {
+       this.completed = completed;	 
+     }
+     
+     
+     
+     
+    // setter for completionDate;
+    
+     
+     public void setCompletionDate(String completionDate)
+     {
+    	 this.CompletionDate = completionDate;
+     }
     
     public void setTitle(String title)
     {
@@ -88,7 +126,7 @@ public class Task {
     @Override
     public String  toString()
     {
-   	 return "Task [taskId=" + this.taskId+ ", taskTitle=" + this.taskTitle+ ", taskText "+this.taskText +", task Assigned to "+ this.assignedTo +"]";
+   	 return "Task [taskId=" + this.taskId+ ", taskTitle=" + this.taskTitle+ ", taskText "+this.taskText +", task Assigned to "+ this.assignedTo +",CompletionDate "+ this.CompletionDate +", Completion status "+ this.completed+"]";
     }
     
     

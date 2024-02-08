@@ -36,21 +36,25 @@ public class UserFunctionImp implements Userfuntion  {
 	@Override
 	public boolean isUserExist(String Email) {
 		// TODO Auto-generated method stub
+		
+		System.out.println(Email);
+		String email = Email;
 		if(isEmpty())
     	{
     		System.out.println("There are no users");
     		return false;
     	}
     	
+    	
     	for(int i =0;i<userCnt;i++)
-    	{
-    		if(users[i]!=null && users[i].getEmail().equals(Email));
-    		{
-    			System.out.println("User Exists"+" Name:"+users[i].getName()+" Email:"+users[i].getEmail());
-    			return true;
-    		}
-    	}
+		{
+			if(users[i]!=null && users[i].getEmail().equals(email)==true)
+			{				
+				return true;
+			}
+		}
 		return false;
+		
 	}
 
 	@Override
@@ -59,12 +63,21 @@ public class UserFunctionImp implements Userfuntion  {
 				// check if User exists
 				// if not then add the object to array 
 				
+		        
+		
+		
 				if(userCnt==5)
 				{
 					System.out.println("Array overflow");
 					return false;
 				}
 				
+				
+				System.out.println(u.toString());
+				if(userCnt>0)
+				{
+				  test(u.getEmail());
+				}
 				if(isUserExist(u.getEmail()))
 				{
 					System.out.println("User already exist");
@@ -76,7 +89,9 @@ public class UserFunctionImp implements Userfuntion  {
 					userCnt++;
 					return true;
 				}
-	}
+				
+				
+	   }
 
 	@Override
 	public User login(String email, String password) {
@@ -98,6 +113,20 @@ public class UserFunctionImp implements Userfuntion  {
 			if(u!=null)
 			{
 				System.out.println(u.toString());
+			}
+		}
+	}
+	
+	
+	public void test(String Email)
+	{
+		System.out.println(Email);
+		for(int i =0;i<userCnt;i++)
+		{
+			System.out.println(users[i].getEmail()+"=="+Email);
+			if(users[i].getEmail().equalsIgnoreCase(Email))
+			{
+				System.out.println("Account exists");
 			}
 		}
 	}

@@ -10,8 +10,8 @@ public class clientMenu {
        Scanner sc = new Scanner(System.in);
        Task t;
        Task tasks[] = null;
-       int ch = 0;
-       int id = 0;
+       int ch;
+       int id;
        String title,text;
        String user;
        String mail;
@@ -24,13 +24,23 @@ public class clientMenu {
     	  System.out.println("3 delete the task ");
     	  System.out.println("4 serach the task ");
     	  System.out.println("5 Assign the task");
+    	  System.out.println("6 Assign completion date to task");
+    	  System.out.println("7 Arrange task in ascending order");
+    	  System.out.println("8 Arrange task in descending order");
     	  System.out.println("0 Logout ");
     	  
     	  System.out.println("Enter you choice");
-    	  ch = sc.nextInt();
     	  
+    	  ch = sc.nextInt();
+    	  sc.nextLine();
     	  switch(ch)
     	  {
+    	  
+    	  case 0:
+    		  System.out.println("Logging out");
+    		  break;
+    	  
+    	  
     	  case 1:
     		  status = false;
     		  if(task_obj.isFull())
@@ -58,7 +68,7 @@ public class clientMenu {
     			System.out.println(" Task couldnt be added ");  
     		  }
     		  
-    		  str.close();
+    		  
     		  
     		  }
     		  
@@ -92,7 +102,7 @@ public class clientMenu {
     			  {
     				 System.out.println("Task not updated");
     			  }
-    			  str.close();
+    			  
     		  }
     		  break;
     	  case 3:
@@ -139,6 +149,8 @@ public class clientMenu {
     			    System.out.println(t.toString());
     			  }
     		  }
+    		  break;
+    		  
     	  case 5:
     		  if(task_obj.isEmpty())
     		  {
@@ -172,15 +184,60 @@ public class clientMenu {
         			  }
         			  else
         			  {
-        				  System.out.println("");
+        				  System.out.println(" Task could not be assigned ");
         			  }
     			  }
-    			  
-    			  
-    			  
-    			  
+    			  else
+    			  {
+    				  System.out.println("User could not be found");
+    			  }
     			  
     		  }
+    		  break;
+    		  
+    	  case 6:
+    		  if(task_obj.isEmpty())
+    		  {
+    			  System.out.println("no task ");
+    		  }
+    		  else
+    		  {
+    			String date;
+    			System.out.println("Enter the title of the task");
+    			title = sc.nextLine();
+    			System.out.println("Enter the date ");
+    			date = sc.nextLine();
+    			task_obj.setCompletionDate(title, date);  
+    		  }
+    		  break;
+    		  
+    		  
+    	  case 7:
+    		  if(task_obj.isEmpty())
+    		  {
+    			  System.out.println("no task ");
+    		  }
+    		  else
+    		  {
+    			  task_obj.arrangeTaskInAscByDate();
+    		  }
+    		  
+    		  break;
+    		  
+    	  case 8:
+    		  if(task_obj.isEmpty())
+    		  {
+    			  System.out.println("No task");
+    		  }
+    		  else
+    		  {
+    			  task_obj.arrangeTaskInDscByDate();
+    		  }
+    		  
+    		  break;
+    		  
+    		  default:
+    			  System.out.println("the input is invalid");
     		  
     		  
     		  

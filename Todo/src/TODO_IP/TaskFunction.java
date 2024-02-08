@@ -11,4 +11,11 @@ public interface TaskFunction {
 	Task[] getAllTasks();
 	boolean isEmpty();
 	boolean isFull();
+	void dispAllCompTask(String title);
+	void dispAllinCompTask(String title);
+	void arrangeTaskInAscByDate();
+	void arrangeTaskInDscByDate();
+	void setCompletionDate(String title,String date);
+	void setTaskToComplete(String title,String user);
+	
 }

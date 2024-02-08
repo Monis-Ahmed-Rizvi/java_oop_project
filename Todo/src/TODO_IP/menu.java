@@ -10,11 +10,11 @@ public class menu {
      int ch = 0;
      String password,email;
      boolean status = false;
-     User u;
+     
      
      
      do {
-    	 
+    	 User u;
     	 System.out.println("1 Login");
   	     System.out.println("2 register");
     	 System.out.println("0 Logout");
@@ -36,8 +36,10 @@ public class menu {
     			 Scanner str1 = new Scanner(System.in);
     			 System.out.println("Enter a email");
     			 email = str1.nextLine();
+    			 
     			 System.out.println("Enter the password");
     			 password = str1.nextLine();
+    			 
     			 u = u_obj.login(email, password);
     			 
     			 if(u==null)
@@ -70,6 +72,7 @@ public class menu {
     		 }
     		 else
     		 {
+    			 u = null;
     			 status = false;
     			 u = new User();
     			 Scanner str = new Scanner(System.in);
@@ -79,13 +82,15 @@ public class menu {
     			 u.setEmail(str.nextLine());
     			 System.out.println("Enter the password");
     			 u.setPassword(str.nextLine());
-    			 System.out.println("Enter type of account");
+    			 System.out.println(" Enter type of account (Visitor/Client) ");
     			 u.setType(str.nextLine()); 
+    			 
+    			 System.out.println(u.toString());
     			 status = u_obj.register(u);
     			 
     			 if(status==true)
     			 {
-    				 System.out.println("User registred");
+    				 System.out.println("User registred"+u.getType());
     			 }
     			 else
     			 {
@@ -93,6 +98,7 @@ public class menu {
     			 }
     			 
     		 }
+    		 break;
     		 
     		 
     		 
