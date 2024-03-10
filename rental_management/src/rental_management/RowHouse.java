@@ -22,7 +22,7 @@ public class RowHouse extends property implements RentCalculator {
 	
 	
 	@Override
-	int  calculatePropertyTax(int pricePerSqFeet)
+	public int  calculatePropertyTax(int pricePerSqFeet)
 	{
 		return (frontyardSize + backyardSize) + pricePerSqFeet;
 	}

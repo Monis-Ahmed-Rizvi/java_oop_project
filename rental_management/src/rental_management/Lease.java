@@ -57,11 +57,22 @@ public class Lease {
 	}
 	
 	
+	public void setMoveOutDate(LocalDate moveOutDate)
+	{
+		this.moveOutDate = moveOutDate;
+	}
 	
 	
 	public property getProperty()
 	{
 		return property_obj;
 	}
+	
+	
+	public void setProperty(property property_obj)
+	{
+		this.property_obj = property_obj;
+	}
+	
 	
 }
